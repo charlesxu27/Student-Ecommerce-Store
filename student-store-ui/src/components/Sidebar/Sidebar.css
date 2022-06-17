@@ -51,8 +51,19 @@
 
 .sidebar.closed {
     width: 60px;
-    }
+}
 
-i, button {
+i,
+button {
     font-size: 16px;
+}
+
+.material-icons.md-48 {
+    font-size: 40px;
+}
+
+.sidebar i {
+    margin-right: 10px;
+    cursor: pointer;
+    color: #fff;
 }
