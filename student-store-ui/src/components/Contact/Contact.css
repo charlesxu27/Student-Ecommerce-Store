@@ -1,9 +1,8 @@
 .content-div {
     background-color: #2c4047;
     padding: 30px;
-    align-items: center;
     display: flex;
-    justify-content: center;
+    justify-content: baseline;
     color: white;
     font-size: 18px;
     margin-left: 50px;
