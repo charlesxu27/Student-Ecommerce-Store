@@ -17,11 +17,63 @@ export default function App() {
   const [shoppingCart, setShoppingCart] = useState()
   const [checkoutForm, setCheckoutForm] = useState()
 
-  const apiUrl = "https://codepath-store-api.herokuapp.com"
+  // Toggle the open/closed state of the Sidebar
+  const handleOnToggle = () => {
+    if (isOpen) {
+      setIsOpen(false)
+    } else {
+      setIsOpen(true)
+    }
+  }
+
+  const handleAddItemToCart = (productId) => {
+    shoppingCart.map((id) => {
+      if (id.itemId != productId){
+        id.quantity = 1
+      } else{
+        id.quantity++;
+      }
+      products.map((item) => {
+        if (item == id.itemId){
+          totalPrice += item.price * id.quantity;
+          console.log(totalPrice);
+        }
+      })
+    })
+  }
+
+  const handleRemoveItemFromCart = (productId) => {
+    setShoppingCart(shoppingCart.map((id,i) => {
+      if (productId == id.itemId){
+        id.quantity--;
+      }
+      if (id.quantity == 0) {
+        delete shoppingCart[i];
+      }
+    }));
+  }
+
+  const handleOnCheckoutFormChange = (name, value) => {
+    setCheckoutForm({name, value});
+  }
+
+  const handleOnSubmitCheckoutForm = () => {
+    axios.post("https://codepath-store-api.herokuapp.com/store",{
+      user:{name: checkoutForm.name, email: checkoutForm.value}, shoppingCart
+    })
+    .then(function(response){
+      console.log(response);
+    })
+    .catch(function(error){
+      console.log(error);
+    })
+  }
 
   // fetch products data from API via axios
-  async function getProducts() {
-    await axios.get(apiUrl + "/store")
+  async function getProducts(endpoint) {
+    const apiUrl = "https://codepath-store-api.herokuapp.com"
+
+    await axios.get(apiUrl + endpoint)
     .then((response) => {
       console.log(`SUCCESS:!`)
       console.log(response.data.products)
@@ -39,7 +91,7 @@ export default function App() {
   }
 
   useEffect(() => {
-    getProducts(); // call getProducts every time we render the App component
+    getProducts("/store"); // call getProducts every time we render the App component
   }, []); // [] signals getProducts is called only once on render.
 
   return (
