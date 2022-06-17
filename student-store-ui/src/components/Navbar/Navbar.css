@@ -1,0 +1,25 @@
+nav {
+    display: flex;
+    background-color: teal;
+    color: white;
+    padding: 2%;
+    justify-content: space-between;
+    width: 100vw;
+    height: 10vh;
+}
+
+.nav-links {
+    color: white;
+    text-decoration: none;
+    font-weight: bolder;
+    white-space: nowrap;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.nav-links-div {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+

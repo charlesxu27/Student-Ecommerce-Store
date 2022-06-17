@@ -3,7 +3,7 @@ import "./ProductDetails.css"
 
 export const ProductDetails = () => {
   return (
-    <div>ProductDetails Component</div>
+    <div>Product Details Component</div>
   )
 }
 
