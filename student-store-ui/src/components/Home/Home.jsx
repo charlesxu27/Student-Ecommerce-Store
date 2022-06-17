@@ -1,9 +1,7 @@
-Home.jsx
-
 import * as React from "react"
 import "./Home.css"
 import Hero from "../Hero/Hero.jsx"
-import ProductGrid from "../ProductDetails/ProductDetails.jsx"
+import ProductGrid from "../ProductGrid/ProductGrid"
 
 export default function Home(props) {
   const {products} = props;
@@ -17,3 +15,4 @@ export default function Home(props) {
     </div>
   )
 }
+
