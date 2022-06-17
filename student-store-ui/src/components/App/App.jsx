@@ -22,6 +22,7 @@ export default function App() {
         <main>
           <Routes>
             <Route exact path="/" element={<Home />} />
+            <Route exact path="/product-details" element={<ProductDetails />} />
             <Route path="/products/:productId" element={<ProductDetails />} />
             <Route path="*" element={<p>Not found!</p>} />
           </Routes>
