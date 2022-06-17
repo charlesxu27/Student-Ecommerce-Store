@@ -1,11 +1,26 @@
-nav {
-    display: flex;
-    background-color: teal;
+.navbar {
+    width: 100%;
+    max-width: 100vw;
+    background: #2c4047;
     color: white;
-    padding: 2%;
-    justify-content: space-between;
-    width: 100vw;
-    height: 10vh;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 20px;
+}
+
+.navbar .header {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.navbar .header .logo {
+    width: 100px;
+    margin-right: 50px;
 }
 
 .nav-links {
@@ -21,5 +36,3 @@ nav {
     display: flex;
     justify-content: space-evenly;
 }
-
-
