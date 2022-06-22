@@ -1,20 +1,26 @@
 import * as React from "react"
 import "./Home.css"
-import Hero from "../Hero/Hero.jsx"
+import Hero from "../Hero/Hero"
 import ProductGrid from "../ProductGrid/ProductGrid"
-import Searchbar from "../SearchBar/SearchBar"
+import Contact from "../Contact/Contact"
+import Footer from "../Footer/Footer"
+
+import About from "../About/About"
 
 export default function Home(props) {
+  console.log(props);
   const {products} = props;
   const {handleAddItemToCart} = props;
   const {handleRemoveItemToCart} = props;
-  
+ 
   return (
     <div className="home">
-      <Hero/>
-      <Searchbar />
-      <ProductGrid products={products} handleAddItemToCart={handleAddItemToCart} handleRemoveItemToCart={handleRemoveItemToCart} />
+        <Hero/>
+        {/* <Searchbar searched={searched} products={products} handleAddItemToCart={handleAddItemToCart} handleRemoveItemToCart={handleRemoveItemToCart} /> */}
+        <ProductGrid products={products} handleAddItemToCart={handleAddItemToCart} handleRemoveItemToCart={handleRemoveItemToCart} /> 
+        <About />
+        <Contact />
+        <Footer />
     </div>
   )
 }
-

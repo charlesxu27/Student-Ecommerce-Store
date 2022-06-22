@@ -111,7 +111,6 @@ export default function App() {
                   <Navbar />
                   <Home products={products} handleAddItemToCart={handleAddItemToCart} handleRemoveItemFromCart={handleRemoveItemFromCart} />
                   <Sidebar />
-                  <Contact />
                 </>
               )}
               />
@@ -120,7 +119,6 @@ export default function App() {
                   <Navbar />
                   <ProductDetail products={products} handleAddItemToCart={handleAddItemToCart} handleRemoveItemFromCart={handleRemoveItemFromCart} />
                   <Sidebar />
-                  <Contact />
                 </>
               )}
               />
@@ -128,7 +126,6 @@ export default function App() {
                 <>
                   <Navbar />
                   <Sidebar />
-                  <Contact />
                 </>
               )}
               />

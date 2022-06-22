@@ -1,4 +1,5 @@
 .productCard {
+    border-style: solid;
     background: var(--pure-white);
     display: flex;
     flex-direction: column;
