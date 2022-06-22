@@ -4,7 +4,8 @@
 
 Selling merchandise in the modern era requires digital solutions. For this project, you'll be tasked with designing and constructing an online student store for the College of Codepath. The application entails a frontend user interface for potential customers to peruse the goods, and a backend API to handle data management. The API will be built with Node and Express and the UI will be built with React.
 
-// Include your gif here
+<img src='walkthrough.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
 
 ### Application Features
 
@@ -97,8 +98,8 @@ The following specifications were met on the Express backend and the React front
 
 **Navbar.jsx**
 
-  - [ ] Should render JSX that is wrapped by a `nav` element with a `className` of `navbar`
-  - [ ] Should render the `Logo` component that links to the `/` route when clicked
+  - [x] Should render JSX that is wrapped by a `nav` element with a `className` of `navbar`
+  - [x] Should render the `Logo` component that links to the `/` route when clicked
 
 **Logo.jsx**
 
