@@ -53,6 +53,13 @@
     width: 60px;
 }
 
+.sidebar.open {
+    width: 600px;
+    align-items: left;
+    justify-content: left;
+    margin-right: 70%;
+}
+
 i,
 button {
     font-size: 16px;
