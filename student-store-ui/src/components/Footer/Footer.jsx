@@ -33,7 +33,8 @@ export default function Footer() {
           <h4 className = "footer-header">Account</h4>
           <p className ="footer-body">Login</p>
           <p className ="footer-body">Register</p>
-          <p className ="footer-body">Account Setting</p>
+          <p className ="footer-body">Account</p>
+          <p className ="footer-body">Setting</p>
           <p className ="footer-body">My Orders</p>
         </span>
         <span className = "section">

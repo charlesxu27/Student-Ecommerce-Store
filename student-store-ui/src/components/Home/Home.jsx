@@ -6,6 +6,7 @@ import Contact from "../Contact/Contact"
 import Footer from "../Footer/Footer"
 
 import About from "../About/About"
+import Sidebar from "../Sidebar/Sidebar"
 
 export default function Home(props) {
   console.log(props);

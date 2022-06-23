@@ -110,7 +110,7 @@ export default function App() {
                 <>
                   <Navbar />
                   <Home products={products} handleAddItemToCart={handleAddItemToCart} handleRemoveItemFromCart={handleRemoveItemFromCart} />
-                  <Sidebar />
+                  <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} handleOnToggle={handleOnToggle} />
                 </>
               )}
               />
@@ -118,14 +118,14 @@ export default function App() {
                 <>
                   <Navbar />
                   <ProductDetail products={products} handleAddItemToCart={handleAddItemToCart} handleRemoveItemFromCart={handleRemoveItemFromCart} />
-                  <Sidebar />
+                  <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} handleOnToggle={handleOnToggle} />
                 </>
               )}
               />
               <Route path="*" element={(
                 <>
                   <Navbar />
-                  <Sidebar />
+                  <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} handleOnToggle={handleOnToggle} />
                 </>
               )}
               />
