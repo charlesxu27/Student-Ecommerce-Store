@@ -78,7 +78,7 @@ export default function App() {
 
   // fetch products data from API via axios
   async function getProducts() {
-    const apiUrl = "https://codepath-store-api.herokuapp.com/store"
+    const apiUrl = "http://localhost:3001/store"
 
     await axios.get(apiUrl)
       .then((response) => {

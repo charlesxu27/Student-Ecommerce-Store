@@ -4,6 +4,8 @@ const cors = require("cors")
 const router = require("./routes/store")
 const axios = require("axios")
 const fs = require('fs').promises
+const data = require('./data/db.json')
+const { join } = require('path')
 
 const app = express()
 
@@ -18,15 +20,36 @@ app.get('/', (req, res) => {
     res.send("Welcome!")
 })
 
-// GET store items
+// GET all store items
 app.get('/store', (req, res) => {
-    fs.promises.readFile('./data/db.json')
-    .then(data => res.send(data))
-    .catch(err => {
+    try {
+        res.send(data)
+    }
+    catch {
         console.error(err)
         res.redirect('/')
-    })
+    }
+    // fs.readFile('./data/db.json')
+    // .then(data => res.send(data))
+    // .catch(err => {
+    //     console.error(err)
+    //     res.redirect('/')
+    // })
 })
+
+// GET a single store item
+app.get('/store/:productId', (req, res) => {
+    productId = req.params.productId
+    try {
+        res.send(data.products[productId - 1])
+    }
+    catch {
+        console.error("Product Not Found!")
+        res.redirect('/')
+    }
+})
+
+
 
 /* Generic error handler */
 app.use((error, req, res, next) => {
@@ -40,6 +63,3 @@ app.use((error, req, res, next) => {
   
 module.exports = app
 
-// Implement the GET route at /store, so that it returns the products like this: https://codepath-store-api.herokuapp.com/store
-// Run your express API locally by running node start and confim it works at http://localhost:3001/store
-// Modify your React app to fetch from the localhost API
