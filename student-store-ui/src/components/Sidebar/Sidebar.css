@@ -33,7 +33,8 @@
 
 .shopping-cart {
     width: 100%;
-    color: #fff;
+    align-items: center;
+
 }
 
 .shopping-cart .cart-icons {
@@ -41,7 +42,6 @@
     flex-direction: column;
     align-items: left;
     margin-top: 50px;
-    width: 100%;
     padding-left: 1rem;
 }
 
@@ -55,9 +55,8 @@
 
 .sidebar.open {
     width: 600px;
-    align-items: left;
-    justify-content: left;
-    margin-right: 70%;
+    align-items: center;
+    justify-content: top;
 }
 
 i,

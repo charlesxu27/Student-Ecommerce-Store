@@ -12,6 +12,7 @@ export default function Sidebar(props) {
       document.getElementById("sidebar").classList.remove("closed")
       document.getElementById("sidebar").classList.add("open")
       props.setIsOpen(true)
+
     } else {
       document.getElementById("sidebar").classList.add("closed")
       document.getElementById("sidebar").classList.remove("open")
@@ -22,22 +23,23 @@ export default function Sidebar(props) {
 
   return (
     <section className="sidebar closed" id="sidebar">
-      <div className="wrapper">
+      <div className="wrapper" id="wrapper">
         <button className="toggle-button button closed" onClick={handleOnClick}><p className="material-icons">
           {!(props.isOpen) ? <BsFillArrowRightCircleFill /> : <BsFillArrowLeftCircleFill />}
-          </p></button>
+        </p></button>
         <div className="shopping-cart">
-          <div className="cart-icons">
-            <span className="cart-icon icon button">
-              <i className="material-icons" onClick={handleOnClick}><BsFillCartPlusFill /></i>
-            </span>
-            <span className="cart-icon icon button">
-              <i className="material-icons" onClick={handleOnClick}><MdPayment /></i>
-            </span>
-            <span className="cart-icon icon button">
-              <i className="material-icons" onClick={handleOnClick}><BsFillInfoCircleFill /></i>
-            </span>
-          </div>
+          {props.isOpen ? <ShoppingCart /> :
+            <div className="cart-icons">
+              <span className="cart-icon icon button">
+                <i className="material-icons" onClick={handleOnClick}><BsFillCartPlusFill /></i>
+              </span>
+              <span className="cart-icon icon button">
+                <i className="material-icons" onClick={handleOnClick}><MdPayment /></i>
+              </span>
+              <span className="cart-icon icon button">
+                <i className="material-icons" onClick={handleOnClick}><BsFillInfoCircleFill /></i>
+              </span>
+            </div>}
         </div>
       </div>
     </section>
