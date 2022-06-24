@@ -1,4 +1,5 @@
 .navbar {
+    margin-left: 4%;
     width: 100%;
     max-width: 100vw;
     background: #2c4047;
@@ -8,32 +9,33 @@
     flex-direction: row;
     align-items: center;
     padding: 20px;
-    margin-left: 50px;
-}
-
-.navbar .header {
+  }
+  
+  .navbar .header {
     width: 100%;
     margin: 0 auto;
     display: flex;
     flex-direction: row;
     align-items: center;
-}
-
-.navbar .header .logo {
+  }
+  
+  .navbar .header .logo {
     width: 100px;
     margin-right: 50px;
-}
-
-.nav-links {
+  }
+  
+  .nav-links {
+    font-size: 20px;
     color: white;
     text-decoration: none;
     font-weight: bolder;
     white-space: nowrap;
-    padding-left: 5px;
+    padding-left: 100px;
     padding-right: 5px;
-}
-
-.nav-links-div {
+  }
+  
+  .nav-links-div {
+    padding-left: 20%;
     display: flex;
     justify-content: space-evenly;
-}
+  }
