@@ -19,7 +19,7 @@ Selling merchandise in the modern era requires digital solutions. For this proje
 - [x] User can click to expand the shopping cart in the left navigation.
 - [x] User can click the '+' button on a product cart to increment that product in the shopping cart.
 - [x] User can click the '-' button on a product cart to increment that product in the shopping cart.
-- [ ] Shopping cart displays a table of products, quantities, subtotal, tax, and total.
+- [x] Shopping cart displays a table of products, quantities, subtotal, tax, and total.
 - [ ] User can check out, and can view receipt upon completion.
 
 #### Stretch Features
@@ -134,17 +134,17 @@ The following specifications were met on the Express backend and the React front
 **ProductDetail.jsx**
 
   - [x] Should render JSX that is wrapped by a `div` element with a `className` of `product-detail`
-  - [ ] Should accept **at least** the following props:
+  - [x] Should accept **at least** the following props:
     - `handleAddItemToCart` - handler function defined in the `App.jsx` component
     - `handleRemoveItemToCart` - handler function defined in the `App.jsx` component
   - [ ] Should define **at least** a `product` state variable and updater
   - [ ] It should leverage the `useParams` hook from `react-router-dom` to extract the `productId` param from the url.
   - [ ] When the component is mounted to the screen...
-    - [ ] It should make a `GET` request to the `/store/:productId` endpoint with the `axios.get` method.
-    - [ ] The `:productId` part of the request should be replaced with the `productId` pulled from the url.
+    - [x] It should make a `GET` request to the `/store/:productId` endpoint with the `axios.get` method.
+    - [x] The `:productId` part of the request should be replaced with the `productId` pulled from the url.
     - [ ] When the initial request is loading, it should render an `h1` element with the `className` of `loading` and contain the text `"Loading..."`
-    - [ ] It should store the `product` received by the request in state and then render the `ProductView` component.
-    - [ ] If no `product` is found with that `id`, it should render the `NotFound` component
+    - [x] It should store the `product` received by the request in state and then render the `ProductView` component.
+    - [x] If no `product` is found with that `id`, it should render the `NotFound` component
 
 **ProductView.jsx**
 
@@ -176,9 +176,9 @@ The following specifications were met on the Express backend and the React front
     - [ ] The `img` element should be wrapped in a `Link` component from `react-router-dom`.
       - [ ] The `Link` element should have a `to` prop so that when the `img` element is clicked on, it should navigate to the product detail route for that product using its `id` attribute. For example, a product with an `id` of `4` should create a `Link` with its `to` prop set to `/products/4`.
       - [ ] The `Link` that wraps the `img` element should be nested somewhere inside an element with the `className` of `media`.
-  - [ ] Should render two `buttons` elements...
-    - [ ] One button with a `className` of `add`. When clicked, it should call the `handleAddItemToCart` function with the `id` of the `product` as its only argument.
-    - [ ] One button with a `className` of `remove`. When clicked, it should call the `handleRemoveItemFromCart` function with the `id` of the `product` as its only argument.
+  - [x] Should render two `buttons` elements...
+    - [x] One button with a `className` of `add`. When clicked, it should call the `handleAddItemToCart` function with the `id` of the `product` as its only argument.
+    - [x] One button with a `className` of `remove`. When clicked, it should call the `handleRemoveItemFromCart` function with the `id` of the `product` as its only argument.
   - [ ] Should display the current quantity of items that the user has selected in their shopping cart. The quantity should be rendered inside an element with the `className` of `product-quantity`. If none of that particular item have been added to the shopping cart, it should render nothing there.
 
 **Sidebar.jsx**
@@ -192,23 +192,23 @@ The following specifications were met on the Express backend and the React front
     - `handleOnCheckoutFormChange` - handler function to update the `checkoutForm` object
     - `handleOnSubmitCheckoutForm` - handler function to submit the user's order to the API
     - `handleOnToggle` - handler function to toggle open/closed `Sidebar` state
-  - [ ] It should always render a `button` element with the `className` of `toggle-button`. When that button is clicked it should change the `isOpen` prop by calling the `handleOnToggle` prop.
-  - [ ] When the sidebar is opened, it should display the `ShoppingCart` and `CheckoutForm` components and should be wider than `350px`.
-  - [ ] When the sidebar is closed, it should only render the toggle button and shouldn't be wider than `150px`.
+  - [x] It should always render a `button` element with the `className` of `toggle-button`. When that button is clicked it should change the `isOpen` prop by calling the `handleOnToggle` prop.
+  - [x] When the sidebar is opened, it should display the `ShoppingCart` and `CheckoutForm` components and should be wider than `350px`.
+  - [x] When the sidebar is closed, it should only render the toggle button and shouldn't be wider than `150px`.
 
 **ShoppingCart.jsx**
 
-  - [ ] Should render JSX that is wrapped by a `div` element with the `className` of `shopping-cart`
-  - [ ] Should accept **at least** the following props (and probably a few more):
+  - [x] Should render JSX that is wrapped by a `div` element with the `className` of `shopping-cart`
+  - [x] Should accept **at least** the following props (and probably a few more):
     - `isOpen` - boolean representing the open/closed state of the Sidebar
     - `products` - the array of products fetched from the API
     - `shoppingCart` - the active user's cart formatted as an array of objects with `itemId` and `quantity` keys
-  - [ ] For every item in the `shoppingCart`:
-    - [ ] It should display the `name` of the item in an element with the `className` of `cart-product-name`. Remember that items in the `shoppingCart` prop will **only** contain the `itemId` and `quantity` fields. Other props will have to be used to conver the `itemId` field to the `product`'s name.
-    - [ ] It should display the `quantity` of the item in an element with the `className` of `cart-product-quantity`
-  - [ ] It add up the cost of all items (make sure to use the quantity of the item requested), and render that amount **rounded up to exactly 2 decimal places** inside an element with the `className` of `subtotal`. Make sure it is prefixed with a dollar sign ($)!
-  - [ ] It should calculate the cost of taxes on that subtotal (using 8.75% as the tax rate), add that amount to the subtotal, and render the total cost **rounded up to exactly 2 decimal places** inside an element with the `className` of `total-price`. Make sure it is prefixed with a dollar sign ($)!
-  - [ ] If no items exist in the `shoppingCart`, it should render this message: `"No items added to cart yet. Start shopping now!"` inside an element with the `className` of `notification`
+  - [x] For every item in the `shoppingCart`:
+    - [x] It should display the `name` of the item in an element with the `className` of `cart-product-name`. Remember that items in the `shoppingCart` prop will **only** contain the `itemId` and `quantity` fields. Other props will have to be used to conver the `itemId` field to the `product`'s name.
+    - [x] It should display the `quantity` of the item in an element with the `className` of `cart-product-quantity`
+  - [x] It add up the cost of all items (make sure to use the quantity of the item requested), and render that amount **rounded up to exactly 2 decimal places** inside an element with the `className` of `subtotal`. Make sure it is prefixed with a dollar sign ($)!
+  - [x] It should calculate the cost of taxes on that subtotal (using 8.75% as the tax rate), add that amount to the subtotal, and render the total cost **rounded up to exactly 2 decimal places** inside an element with the `className` of `total-price`. Make sure it is prefixed with a dollar sign ($)!
+  - [x] If no items exist in the `shoppingCart`, it should render this message: `"No items added to cart yet. Start shopping now!"` inside an element with the `className` of `notification`
 
 **CheckoutForm.jsx**
 
@@ -253,8 +253,8 @@ The following specifications were met on the Express backend and the React front
   - [ ] Create a purchase order
 
 **Routes** - The API should contain a route mounted at the `/store` endpoint
-  - [ ] It should respond to `GET` requests to `/store` with an array of all products in the store in this format: `{ "products": products }`
-  - [ ] It should respond to `GET` requests to `/store/:productId` with a single product based on the product's id using this JSON format: `{ "product": product }`
+  - [x] It should respond to `GET` requests to `/store` with an array of all products in the store in this format: `{ "products": products }`
+  - [x] It should respond to `GET` requests to `/store/:productId` with a single product based on the product's id using this JSON format: `{ "product": product }`
   - [ ] It should allow `POST` requests to the `/store` endpoint:
     - [ ] The endpoint should create purchase orders for users and save them to the `db.json` file
     - [ ] The endpoint should accept a request body that contains `shoppingCart` and `user` fields.
