@@ -10,8 +10,42 @@ export default function ShoppingCart() {
         <b>Shopping Cart</b>
         < BsFillCartPlusFill />
       </span>
+      <div className='cart-table'>
+        <table>
+          <tr>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Unit Price</th>
+            <th>Cost</th>
+          </tr>
+          <tr>
+            <td>Cheetos</td>
+            <td>3</td>
+            <td>1.50</td>
+            <td>4.50</td>
+          </tr>
+          <tr>
+            <td>Coconut Water</td>
+            <td>1</td>
+            <td>1.0</td>
+            <td>1.0</td>
+          </tr>
+        </table>
+      </div>
       <div className='cart-invoice'>
-        TO BE FILLED OUT
+        <tr>
+          <td>Subtotal </td>
+          <td>4.18</td>
+        </tr>
+        <tr>
+          <td>Taxes and Fees </td>
+          <td>0.50</td>
+        </tr>
+        <hr></hr>
+        <tr>
+          <td>Total </td>
+          <td>4.68</td>
+        </tr>
       </div>
       <span>
         <b>Payment Info</b>

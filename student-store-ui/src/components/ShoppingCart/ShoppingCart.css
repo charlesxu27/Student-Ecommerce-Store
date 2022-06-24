@@ -22,7 +22,12 @@
     width: 500px;
 }
 
-.cart-invoice {
+.cart-invoice, .cart-table {
     background-color: white;
-    height: 100px;
+    width: 400px;
+}
+
+.cart-invoice {
+    font-weight: bolder;
+    color: black;
 }
