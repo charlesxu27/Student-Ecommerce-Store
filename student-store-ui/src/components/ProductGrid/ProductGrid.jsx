@@ -15,8 +15,6 @@ const [filterActive, setFilterActive] = useState(false);
 
 //prop variables
 const {products} = props;
-const {handleAddItemToCart} = props;
-const {handleRemoveItemToCart} = props;
  
 console.log(props)
 //useEffect for category
@@ -68,17 +66,17 @@ const returnProducts = () => {
         console.log("does this work?");
         if(filterActive){
         return(filteredCategory.map((product, i) => { 
-            return (<ProductCard className="productCard"  key={i} product={product}/> )
+            return (<ProductCard className="productCard"  key={i} product={product} handleAddItemToCart={props.handleAddItemToCart} handleRemoveItemFromCart={props.handleRemoveItemFromCart}/> )
         }))
         }else{
             return(props.products.map((product, i) => { 
-                return (<ProductCard className="productCard"  key={i} product={product}/> )
+                return (<ProductCard className="productCard"  key={i} product={product} handleAddItemToCart={props.handleAddItemToCart} handleRemoveItemFromCart={props.handleRemoveItemFromCart}/> )
             }))
         }
     }else if (searchedActive === true){
         console.log(1113,"does this work?");
         return(filteredData.map((product, i) => { 
-            return (<ProductCard className="productCard" id = {product.id} key={i} product={pr}/> )
+            return (<ProductCard className="productCard"  key={i} product={product} handleAddItemToCart={props.handleAddItemToCart} handleRemoveItemFromCart={props.handleRemoveItemFromCart}/> )
         }))
     }
 }

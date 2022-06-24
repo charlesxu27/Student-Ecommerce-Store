@@ -5,7 +5,6 @@ import ProductDetail from "../ProductDetail/ProductDetail"
 import Home from "../Home/Home"
 import Contact from "../Contact/Contact"
 import Searchbar from "../SearchBar/SearchBar"
-
 import "./App.css"
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { useState, useEffect } from "react"
@@ -21,7 +20,7 @@ export default function App() {
   const [isFetching, setIsFetching] = React.useState(false);
   const [error, setError] = React.useState("");
   const [isOpen, setIsOpen] = React.useState(false);
-  const [shoppingCart, setShoppingCart] = React.useState([shoppingCartObject]);
+  const [shoppingCart, setShoppingCart] = React.useState([]);
   const [checkoutForm, submitCheckoutForm] = React.useState({});
 
   // Toggle the open/closed state of the Sidebar
@@ -34,30 +33,27 @@ export default function App() {
   }
 
   const handleAddItemToCart = (productId) => {
-    shoppingCart.map((id) => {
-      if (id.itemId != productId) {
-        id.quantity = 1
-      } else {
-        id.quantity++;
+    console.log(`ADDING PRODUCT ID ${productId} to CART`)
+    const index = shoppingCart.findIndex(item => item.itemId === productId)
+    if (index >= 0) {
+      let newShoppingCart = shoppingCart
+      shoppingCart[index].quantity++
+      setShoppingCart([...newShoppingCart])
+    } else {
+      setShoppingCart([...shoppingCart, { itemId: productId, quantity: 1 }])
       }
-      products.map((item) => {
-        if (item == id.itemId) {
-          totalPrice += item.price * id.quantity;
-          console.log(totalPrice);
-        }
-      })
-    })
+    console.log(1000, shoppingCart)
   }
 
   const handleRemoveItemFromCart = (productId) => {
-    setShoppingCart(shoppingCart.map((id, i) => {
-      if (productId == id.itemId) {
-        id.quantity--;
-      }
-      if (id.quantity == 0) {
-        delete shoppingCart[i];
-      }
-    }));
+    console.log(`REMOVING PRODUCT ID ${productId} from CART`)
+    const index = shoppingCart.findIndex(item => item.itemId === productId)
+    if (index >= 0 && shoppingCart[index].quantity > 0) {
+      let newShoppingCart = shoppingCart
+      shoppingCart[index].quantity--
+      setShoppingCart([...newShoppingCart])
+    }
+    console.log(1000, shoppingCart)
   }
 
   const handleOnCheckoutFormChange = (name, value) => {

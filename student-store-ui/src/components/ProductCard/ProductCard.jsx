@@ -26,15 +26,9 @@ import { Link } from "react-router-dom";
 import "./ProductCard.css"
 
 export default function ProductCard(props) {
-  const {product} = props;
-  const {productId} = props;
-  const {quantity} = props;
-  const {handleAddItemToCart} = props;
-  const {handleRemoveItemToCart} = props;
+  const {product} = props.product;
   const showDescription = props.showDescription;
-  console.log(95,product);
-  console.log(props)
-  console.log(props.product.description);
+
 
     return (
       <div className="product-card">
@@ -44,7 +38,11 @@ export default function ProductCard(props) {
         <h3 className="product-name">{props.product.name}</h3>
         <h4>{ratingToStars(5)}</h4>
         <h5 className="product-price">${props.product.price.toFixed(2)}</h5>
-        {showDescription == true && <h6 className="product-description">{props.product.description}</h6>}
+        {showDescription == true && <h6 className="product-description">{props.product.description ? props.product.description : "No description found"}</h6>}
+        <div className="addRemoveArea">
+          <button className="addButton" onClick={() => (props.handleAddItemToCart(props.product.id))}>+</button>
+          <button className="removeButton" onClick={() => (props.handleRemoveItemFromCart(props.product.id))}>-</button>
+        </div>
       </div>
     )
 }
