@@ -243,13 +243,13 @@ The following specifications were met on the Express backend and the React front
         - [ ] The `checkoutForm` should be reset to its default state.
 
 **Server** - Create an Express server
-  - [ ] Wire up the appropriate middleware and error handlers in the `app.js` file
-  - [ ] Create a single `GET` request handler at the `/` endpoint. It should respond to all `GET` requests with a JSON object and a `200` status code. The JSON response should contain a single key of `ping` that stores the string value: `pong`. For example: `{ "ping": "pong" }`.
-  - [ ] Have a `server.js` file that starts the app by listening on port `3001`.
+  - [x] Wire up the appropriate middleware and error handlers in the `app.js` file
+  - [x] Create a single `GET` request handler at the `/` endpoint. It should respond to all `GET` requests with a JSON object and a `200` status code. The JSON response should contain a single key of `ping` that stores the string value: `pong`. For example: `{ "ping": "pong" }`.
+  - [x] Have a `server.js` file that starts the app by listening on port `3001`.
 
 **Models** - The API should use a `Store` model that handles the following
-  - [ ] List all products currently in the `db.json` file
-  - [ ] Fetch a single product by its id
+  - [x] List all products currently in the `db.json` file
+  - [x] Fetch a single product by its id
   - [ ] Create a purchase order
 
 **Routes** - The API should contain a route mounted at the `/store` endpoint
@@ -292,12 +292,14 @@ Yes, the basic concepts were taught, and the final project was quite challenging
 I would have managed my time better and tried to in terms of components instead of functionality. I would have also tried to make sure the UI can handle multiple screen sizes. That would involve better flexbox code.
 
 - Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
-Add your response here
+My website responded well to all the core actions, but I know that I have to figure out some edge cases like when a user clicks to add a item while the shopping cart is still in view.
 
 - Open-source libraries used
+Just stackoverflow and react docs
 
 - Add any links to open-source libraries used in your project.
 Shout out to my group! Andrew, Christy, Nas :D
+And my group for week 2 as well! Annesa, Amaar, Valerie :D
 
 - Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
 I honestly can't remember everyone who helped, but shout out to all the TAs!!!
