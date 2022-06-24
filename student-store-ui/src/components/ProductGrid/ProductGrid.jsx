@@ -16,16 +16,13 @@ const [filterActive, setFilterActive] = useState(false);
 //prop variables
 const {products} = props;
  
-console.log(props)
 //useEffect for category
 useEffect(()=>{
     setFilteredCategory(products);
-    console.log(999,filteredCategory);
 }, []);
 //handle for category
 const handleCategories = (e) =>{
     let typeCategory = e.target.value;
-    console.log(94,typeCategory);
     typeCategory != "all categories" ? setFilteredCategory(products.filter((product) =>{
         if (typeCategory == product.category){
             return product;
@@ -33,13 +30,10 @@ const handleCategories = (e) =>{
     })) : setFilteredCategory(products);
     setFilterActive(true);
 }
-console.log(852,filteredCategory)
 //const {searched} = props;
 const handleOnChange = (e) => {
-    console.log(12,e.target.value);
     setSearchInput(e.target.value);
     getFilteredItems(searchInput, products);
-    console.log(35, filteredData);
     if (e.target.value==''){
         setSearchedActive(false);
     }else{
@@ -52,18 +46,13 @@ const getFilteredItems = (searchInput, products) => {
         return products;
     }
     const data = products.filter((product) => product.name.toLowerCase().includes(searchInput.toLowerCase()));
-    console.log(15, data);
     setFilteredData(data);
     // setSearched(true);
-    console.log(16,filteredData);
-    console.log(30,products.filter((product) => product.name.toLowerCase().includes(searchInput.toLowerCase())));
     return filteredData;
 }
 
 const returnProducts = () => {
-    console.log(111,searchedActive);
     if (searchedActive === false) {
-        console.log("does this work?");
         if(filterActive){
         return(filteredCategory.map((product, i) => { 
             return (<ProductCard className="productCard"  key={i} product={product} handleAddItemToCart={props.handleAddItemToCart} handleRemoveItemFromCart={props.handleRemoveItemFromCart}/> )
@@ -74,7 +63,6 @@ const returnProducts = () => {
             }))
         }
     }else if (searchedActive === true){
-        console.log(1113,"does this work?");
         return(filteredData.map((product, i) => { 
             return (<ProductCard className="productCard"  key={i} product={product} handleAddItemToCart={props.handleAddItemToCart} handleRemoveItemFromCart={props.handleRemoveItemFromCart}/> )
         }))
@@ -96,7 +84,6 @@ const returnProducts = () => {
         </li>
       </div>
       <div className="content"><h1>Best Selling Products</h1>
-        {console.log(props.products)}
         <div className="grid" >
         {returnProducts()}
         </div>

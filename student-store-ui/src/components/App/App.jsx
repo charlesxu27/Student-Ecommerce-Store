@@ -22,6 +22,7 @@ export default function App() {
   const [isOpen, setIsOpen] = React.useState(false);
   const [shoppingCart, setShoppingCart] = React.useState([]);
   const [checkoutForm, submitCheckoutForm] = React.useState({});
+  const [subTotal, setSubTotal] = React.useState(0)
 
   // Toggle the open/closed state of the Sidebar
   const handleOnToggle = () => {
@@ -41,8 +42,7 @@ export default function App() {
       setShoppingCart([...newShoppingCart])
     } else {
       setShoppingCart([...shoppingCart, { itemId: productId, quantity: 1 }])
-      }
-    console.log(1000, shoppingCart)
+    }
   }
 
   const handleRemoveItemFromCart = (productId) => {
@@ -53,8 +53,18 @@ export default function App() {
       shoppingCart[index].quantity--
       setShoppingCart([...newShoppingCart])
     }
-    console.log(1000, shoppingCart)
+    // console.log(1000, shoppingCart)
+    // let tempSubtotal = 0
+    // shoppingCart.map((item) => {
+    //   let price = products[item.itemId - 1].price
+    //   let quantity = item.quantity
+    //   tempSubtotal += (price * quantity)
+    // })
+    // setSubTotal(tempSubtotal)
+    // console.log(`The subtotal is: $${tempSubtotal}`)
   }
+
+
 
   const handleOnCheckoutFormChange = (name, value) => {
     setCheckoutForm({ name, value });
@@ -105,23 +115,23 @@ export default function App() {
               <Route path="/" element={(
                 <>
                   <Navbar />
-                  <Home products={products} handleAddItemToCart={handleAddItemToCart} handleRemoveItemFromCart={handleRemoveItemFromCart} />
-                  <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} handleOnToggle={handleOnToggle} />
+                  <Home products={products} handleAddItemToCart={handleAddItemToCart} handleRemoveItemFromCart={handleRemoveItemFromCart} subTotal={subTotal} setSubTotal={setSubTotal} />
+                  <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} shoppingCart={shoppingCart} handleOnToggle={handleOnToggle} subTotal={subTotal} setSubTotal={setSubTotal} products={products} />
                 </>
               )}
               />
               <Route path="/products/:productsId" element={(
                 <>
                   <Navbar />
-                  <ProductDetail products={products} handleAddItemToCart={handleAddItemToCart} handleRemoveItemFromCart={handleRemoveItemFromCart} />
-                  <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} handleOnToggle={handleOnToggle} />
+                  <ProductDetail products={products} handleAddItemToCart={handleAddItemToCart} handleRemoveItemFromCart={handleRemoveItemFromCart} subTotal={subTotal} setSubTotal={setSubTotal} />
+                  <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} shoppingCart={shoppingCart} handleOnToggle={handleOnToggle} subTotal={subTotal} setSubTotal={setSubTotal} products={products} />
                 </>
               )}
               />
               <Route path="*" element={(
                 <>
                   <Navbar />
-                  <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} handleOnToggle={handleOnToggle} />
+                  <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} shoppingCart={shoppingCart} handleOnToggle={handleOnToggle} subTotal={subTotal} setSubTotal={setSubTotal} products={products} />
                 </>
               )}
               />

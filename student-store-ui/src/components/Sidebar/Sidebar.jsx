@@ -28,7 +28,7 @@ export default function Sidebar(props) {
           {!(props.isOpen) ? <BsFillArrowRightCircleFill /> : <BsFillArrowLeftCircleFill />}
         </p></button>
         <div className="shopping-cart">
-          {props.isOpen ? <ShoppingCart /> :
+          {props.isOpen ? <ShoppingCart shoppingCart={props.shoppingCart} subTotal={props.subTotal} products={props.products}/> :
             <div className="cart-icons">
               <span className="cart-icon icon button">
                 <i className="material-icons" onClick={handleOnClick}><BsFillCartPlusFill /></i>
