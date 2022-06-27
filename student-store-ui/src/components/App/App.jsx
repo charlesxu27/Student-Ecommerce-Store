@@ -53,15 +53,6 @@ export default function App() {
       shoppingCart[index].quantity--
       setShoppingCart([...newShoppingCart])
     }
-    // console.log(1000, shoppingCart)
-    // let tempSubtotal = 0
-    // shoppingCart.map((item) => {
-    //   let price = products[item.itemId - 1].price
-    //   let quantity = item.quantity
-    //   tempSubtotal += (price * quantity)
-    // })
-    // setSubTotal(tempSubtotal)
-    // console.log(`The subtotal is: $${tempSubtotal}`)
   }
 
 
@@ -71,7 +62,7 @@ export default function App() {
   }
 
   const handleOnSubmitCheckoutForm = () => {
-    axios.post("https://codepath-store-api.herokuapp.com/store", {
+    axios.post("http://localhost:3001/store", {
       user: { name: checkoutForm.name, email: checkoutForm.value }, shoppingCart
     })
       .then(function (response) {
