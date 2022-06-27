@@ -1,4 +1,4 @@
-# Project #2: Student Store
+# Project #2,3: Student Store
 
 ## Overview
 
