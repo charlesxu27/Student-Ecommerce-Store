@@ -3,6 +3,6 @@ import "./CheckoutForm.css"
 
 export default function CheckoutForm() {
   return (
-    <div>CheckoutForm</div>
+    <div>Successfully Checked Out!</div>
   )
 }

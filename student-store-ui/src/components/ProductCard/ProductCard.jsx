@@ -1,26 +1,3 @@
-/*
-import * as React from "react"
-import "./ProductCard.css"
-
-export default function ProductCard(props) {
-    const {product} = props;
-    const {handleAddItemToCart} = props;
-    const {handleRemoveItemToCart} = props;
-    const {showDescriptiont} = props;
-    
-    return (
-    <div className="product-card">
-        <div className="image">
-            //{<Link to={{'/products/{product.id}'}}}>} 
-                // <img src={product.image}></img>
-        // <h3 className="name">{product.name}</h3>
-            
-        // </div>
-            // <p className="product-price">${product.price.toFixed(2)}</p>
-    // </div>
-//   )
-// }
-*/
 import * as React from "react"
 import { Link } from "react-router-dom";
 import "./ProductCard.css"

@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import './ShoppingCart.css'
 import { BsFillArrowRightCircleFill, BsFillCartPlusFill, BsFillArrowLeftCircleFill, BsFillInfoCircleFill } from "react-icons/bs"
 import { MdPayment } from "react-icons/md"
+import CheckoutForm from '../CheckoutForm/CheckoutForm'
 
 export default function ShoppingCart(props) {
 
@@ -77,11 +78,11 @@ export default function ShoppingCart(props) {
       <div className='payment'>
         <form className='payment-form'>
           <label>Name</label>
-          <input type="text" placeholder="Enter your name..."></input>
+          <input type="text" onChange={(event) => {props.handleOnCheckoutFormChange(event.target.name, event.target.value)} }placeholder="Enter your name..."></input>
           <label>Email</label>
-          <input type="text" placeholder="student@codepath.org"></input>
+          <input type="text" onChange={(event) => {props.handleOnCheckoutFormChange(event.target.name, event.target.value)} } placeholder="student@codepath.org"></input>
           <i>I agree to the terms and services</i>
-          <button type="submit">Check Out</button>
+          <button type="submit" onClick={props.handleOnSubmitCheckoutForm}>Check Out</button>
         </form>
       </div>
       <span>
