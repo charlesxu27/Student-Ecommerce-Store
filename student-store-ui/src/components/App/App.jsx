@@ -117,23 +117,63 @@ export default function App() {
               <Route path="/" element={(
                 <>
                   <Navbar />
-                  <Home products={products} handleAddItemToCart={handleAddItemToCart} handleRemoveItemFromCart={handleRemoveItemFromCart} subTotal={subTotal} setSubTotal={setSubTotal} />
-                  <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} shoppingCart={shoppingCart} handleOnToggle={handleOnToggle} subTotal={subTotal} setSubTotal={setSubTotal} products={products} handleOnCheckoutFormChange={handleOnCheckoutFormChange} handleOnSubmitCheckoutForm={handleOnSubmitCheckoutForm} />
+                  <Home 
+                  products={products} 
+                  handleAddItemToCart={handleAddItemToCart} 
+                  handleRemoveItemFromCart={handleRemoveItemFromCart} 
+                  subTotal={subTotal} 
+                  setSubTotal={setSubTotal} 
+                  />
+                  <Sidebar 
+                  isOpen={isOpen} 
+                  setIsOpen={setIsOpen} 
+                  shoppingCart={shoppingCart} 
+                  handleOnToggle={handleOnToggle} 
+                  subTotal={subTotal} 
+                  setSubTotal={setSubTotal} 
+                  products={products} 
+                  handleOnCheckoutFormChange={handleOnCheckoutFormChange} 
+                  handleOnSubmitCheckoutForm={handleOnSubmitCheckoutForm} 
+                  />
                 </>
               )}
               />
               <Route path="/products/:productsId" element={(
                 <>
                   <Navbar />
-                  <ProductDetail products={products} handleAddItemToCart={handleAddItemToCart} handleRemoveItemFromCart={handleRemoveItemFromCart} subTotal={subTotal} setSubTotal={setSubTotal} />
-                  <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} shoppingCart={shoppingCart} handleOnToggle={handleOnToggle} subTotal={subTotal} setSubTotal={setSubTotal} products={products} handleOnCheckoutFormChange={handleOnCheckoutFormChange} handleOnSubmitCheckoutForm={handleOnSubmitCheckoutForm} />
+                  <ProductDetail products={products} 
+                  handleAddItemToCart={handleAddItemToCart} 
+                  handleRemoveItemFromCart={handleRemoveItemFromCart} 
+                  subTotal={subTotal} 
+                  setSubTotal={setSubTotal} />
+                  <Sidebar 
+                  isOpen={isOpen} 
+                  setIsOpen={setIsOpen} 
+                  shoppingCart={shoppingCart} 
+                  handleOnToggle={handleOnToggle} 
+                  subTotal={subTotal} 
+                  setSubTotal={setSubTotal} 
+                  products={products} 
+                  handleOnCheckoutFormChange={handleOnCheckoutFormChange} 
+                  handleOnSubmitCheckoutForm={handleOnSubmitCheckoutForm} 
+                  />
                 </>
               )}
               />
               <Route path="*" element={(
                 <>
                   <Navbar />
-                  <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} shoppingCart={shoppingCart} handleOnToggle={handleOnToggle} subTotal={subTotal} setSubTotal={setSubTotal} products={products} handleOnCheckoutFormChange={handleOnCheckoutFormChange} handleOnSubmitCheckoutForm={handleOnSubmitCheckoutForm} />
+                  <Sidebar 
+                  isOpen={isOpen} 
+                  setIsOpen={setIsOpen} 
+                  shoppingCart={shoppingCart} 
+                  handleOnToggle={handleOnToggle} 
+                  subTotal={subTotal} 
+                  setSubTotal={setSubTotal} 
+                  products={products} 
+                  handleOnCheckoutFormChange={handleOnCheckoutFormChange} 
+                  handleOnSubmitCheckoutForm={handleOnSubmitCheckoutForm} 
+                  />
                 </>
               )}
               />

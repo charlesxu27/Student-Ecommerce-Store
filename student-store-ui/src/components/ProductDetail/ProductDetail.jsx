@@ -9,39 +9,39 @@ import ProductView from "../ProductView/ProductView"
 export default function ProductDetail(props) {
   const productId = useParams();
   //props
-  const {handleAddItemToCart} = props;
-  const {handleRemoveItemToCart} = props;
+  const { handleAddItemToCart } = props;
+  const { handleRemoveItemToCart } = props;
   //states
-  const {products} = props;
-  console.log(13,products);
-  const [product, setProduct]=useState();
+  const { products } = props;
+  console.log(13, products);
+  const [product, setProduct] = useState();
   const [isLoading, setIsLoading] = useState(false);
-  
-  console.log(15,productId);
+
+  console.log(15, productId);
   //useEffect
-  useEffect(()=>{
-    const fetchProductId = async() => {
+  useEffect(() => {
+    const fetchProductId = async () => {
       setIsLoading(true);
       await axios.get(`https://codepath-store-api.herokuapp.com/store/${productId.productsId}`)
         .then((res) => {
-          console.log(48,res.data.product);
+          console.log(48, res.data.product);
           setProduct(res.data.product)
-          
-        }).catch((error)=>{
+
+        }).catch((error) => {
           console.error(error);
           setProduct(null);
         })
     }
     fetchProductId();
     setIsLoading(false);
-  },[])
-  console.log(89,props.shoppingCart);
-  console.log(79,product)
+  }, [])
+  console.log(89, props.shoppingCart);
+  console.log(79, product)
   console.log(isLoading);
   return (
     <div className="product-detail">
       {isLoading == true && <h1 className="loading">Loading...</h1>}
-      {product ? <ProductView quantity={1} product={product} productId={productId.productsId} handleAddItemToCart={handleAddItemToCart} handleRemoveItemToCart={handleRemoveItemToCart}/>:<NotFound/>}
+      {product ? <ProductView quantity={1} product={product} productId={productId.productsId} handleAddItemToCart={handleAddItemToCart} handleRemoveItemToCart={handleRemoveItemToCart} /> : <NotFound />}
     </div>
   )
 }
