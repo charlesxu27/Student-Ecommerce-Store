@@ -24,6 +24,7 @@ export default function App() {
   const [shoppingCart, setShoppingCart] = React.useState([]);
   const [checkoutForm, setCheckoutForm] = React.useState({});
   const [subTotal, setSubTotal] = React.useState(0)
+  const [isCheckedOut, setIsCheckedOut] = React.useState(false)
 
   // Toggle the open/closed state of the Sidebar
   const handleOnToggle = () => {
@@ -62,12 +63,12 @@ export default function App() {
 
   const handleOnCheckoutFormChange = (name, value) => {
     console.log("CHANGED CHECKOUT FORM", name, value);
-    setCheckoutForm({ ...checkoutForm, [name]: value });
+    setCheckoutForm({ ...checkoutForm, name : value });
   }
 
 
-  const handleOnSubmitCheckoutForm = () => {
-    console.log("SUBMITTED CHECKOUT FORM")
+  const handleOnSubmitCheckoutForm = (e) => {
+    e.preventDefault()
     axios.post("http://localhost:3001/store", {
       user: { "name": checkoutForm.name, "email": checkoutForm.value }, shoppingCart
     })
@@ -75,13 +76,17 @@ export default function App() {
         console.log(response);
         setShoppingCart([]);
         setCheckoutForm({ email: "", name: "" });
+        setIsCheckedOut(true)
       })
       .catch(function (error) {
         console.log(error);
       })
-      .then(
-        < CheckoutForm />
-      )
+      .then(function() {
+        setIsCheckedOut(true)
+        console.log(isCheckedOut)
+        return (<checkoutForm isCheckedOut={isCheckedOut} shoppingCart={shoppingCart} products={products}/>)
+      })
+
   }
 
   // fetch products data from API via axios
@@ -117,23 +122,25 @@ export default function App() {
               <Route path="/" element={(
                 <>
                   <Navbar />
-                  <Home 
-                  products={products} 
-                  handleAddItemToCart={handleAddItemToCart} 
-                  handleRemoveItemFromCart={handleRemoveItemFromCart} 
-                  subTotal={subTotal} 
-                  setSubTotal={setSubTotal} 
+                  <Home
+                    products={products}
+                    handleAddItemToCart={handleAddItemToCart}
+                    handleRemoveItemFromCart={handleRemoveItemFromCart}
+                    subTotal={subTotal}
+                    setSubTotal={setSubTotal}
                   />
-                  <Sidebar 
-                  isOpen={isOpen} 
-                  setIsOpen={setIsOpen} 
-                  shoppingCart={shoppingCart} 
-                  handleOnToggle={handleOnToggle} 
-                  subTotal={subTotal} 
-                  setSubTotal={setSubTotal} 
-                  products={products} 
-                  handleOnCheckoutFormChange={handleOnCheckoutFormChange} 
-                  handleOnSubmitCheckoutForm={handleOnSubmitCheckoutForm} 
+                  <Sidebar
+                    isOpen={isOpen}
+                    setIsOpen={setIsOpen}
+                    shoppingCart={shoppingCart}
+                    handleOnToggle={handleOnToggle}
+                    subTotal={subTotal}
+                    setSubTotal={setSubTotal}
+                    products={products}
+                    handleOnCheckoutFormChange={handleOnCheckoutFormChange}
+                    handleOnSubmitCheckoutForm={handleOnSubmitCheckoutForm}
+                    isCheckedOut={isCheckedOut}
+                    setIsCheckedOut={setIsCheckedOut}
                   />
                 </>
               )}
@@ -141,21 +148,23 @@ export default function App() {
               <Route path="/products/:productsId" element={(
                 <>
                   <Navbar />
-                  <ProductDetail products={products} 
-                  handleAddItemToCart={handleAddItemToCart} 
-                  handleRemoveItemFromCart={handleRemoveItemFromCart} 
-                  subTotal={subTotal} 
-                  setSubTotal={setSubTotal} />
-                  <Sidebar 
-                  isOpen={isOpen} 
-                  setIsOpen={setIsOpen} 
-                  shoppingCart={shoppingCart} 
-                  handleOnToggle={handleOnToggle} 
-                  subTotal={subTotal} 
-                  setSubTotal={setSubTotal} 
-                  products={products} 
-                  handleOnCheckoutFormChange={handleOnCheckoutFormChange} 
-                  handleOnSubmitCheckoutForm={handleOnSubmitCheckoutForm} 
+                  <ProductDetail products={products}
+                    handleAddItemToCart={handleAddItemToCart}
+                    handleRemoveItemFromCart={handleRemoveItemFromCart}
+                    subTotal={subTotal}
+                    setSubTotal={setSubTotal} />
+                  <Sidebar
+                    isOpen={isOpen}
+                    setIsOpen={setIsOpen}
+                    shoppingCart={shoppingCart}
+                    handleOnToggle={handleOnToggle}
+                    subTotal={subTotal}
+                    setSubTotal={setSubTotal}
+                    products={products}
+                    handleOnCheckoutFormChange={handleOnCheckoutFormChange}
+                    handleOnSubmitCheckoutForm={handleOnSubmitCheckoutForm}
+                    isCheckedOut={isCheckedOut}
+                    setIsCheckedOut={setIsCheckedOut}
                   />
                 </>
               )}
@@ -163,16 +172,18 @@ export default function App() {
               <Route path="*" element={(
                 <>
                   <Navbar />
-                  <Sidebar 
-                  isOpen={isOpen} 
-                  setIsOpen={setIsOpen} 
-                  shoppingCart={shoppingCart} 
-                  handleOnToggle={handleOnToggle} 
-                  subTotal={subTotal} 
-                  setSubTotal={setSubTotal} 
-                  products={products} 
-                  handleOnCheckoutFormChange={handleOnCheckoutFormChange} 
-                  handleOnSubmitCheckoutForm={handleOnSubmitCheckoutForm} 
+                  <Sidebar
+                    isOpen={isOpen}
+                    setIsOpen={setIsOpen}
+                    shoppingCart={shoppingCart}
+                    handleOnToggle={handleOnToggle}
+                    subTotal={subTotal}
+                    setSubTotal={setSubTotal}
+                    products={products}
+                    handleOnCheckoutFormChange={handleOnCheckoutFormChange}
+                    handleOnSubmitCheckoutForm={handleOnSubmitCheckoutForm}
+                    isCheckedOut={isCheckedOut}
+                    setIsCheckedOut={setIsCheckedOut}
                   />
                 </>
               )}

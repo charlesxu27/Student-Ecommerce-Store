@@ -71,7 +71,7 @@ export default function ShoppingCart(props) {
           </tbody>
         </table>
       </div>
-      < CheckoutForm />
+      < CheckoutForm checkedOut={false} handleOnCheckoutFormChange={props.handleOnCheckoutFormChange} handleOnSubmitCheckoutForm={props.handleOnSubmitCheckoutForm} isCheckedOut={props.isCheckedOut} setIsCheckedOut={props.setIsCheckedOut} shoppingCart={props.shoppingCart} products={props.products}/>
 
 
     </div>
